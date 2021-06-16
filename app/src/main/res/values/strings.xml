@@ -2,6 +2,7 @@
     <string name="app_name">Udfordring_template</string>
     <string name="challenge_title">Challenge_title</string>
     <string name="location_title">Location_title</string>
+    <string name="result_title">Wow! you managed:</string>
     <string name="title_activity_result">ResultActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

@@ -15,10 +15,13 @@ public class ResultActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_result);
-        TextView resultText = (TextView) findViewById(R.id.result_text);
+        TextView resultText = (TextView) findViewById(R.id.result_data);
         String result = getIntent().getStringExtra("result_key");
         resultText.setText(result);
+
+        addListenerOnButton();
     }
 
     public void addListenerOnButton(){

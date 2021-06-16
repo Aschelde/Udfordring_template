@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 
 import android.content.Intent;
+import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -17,6 +19,7 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
+    private boolean counterIsRunning = false;
 
         @Override
         protected void onCreate (Bundle savedInstanceState){
@@ -33,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 counterButton.setEnabled(false);
+                counterIsRunning = true;
+
+                onResume();
 
                 new CountDownTimer(5000, 1000) {
 
@@ -45,11 +51,35 @@ public class MainActivity extends AppCompatActivity {
                         //counterButton.setText("done!");
                         Intent intent = new Intent(MainActivity.this, ResultActivity.class);
                         intent.putExtra("result_key", "test");
+                        counterIsRunning = false;
                         startActivity(intent);
                     }
 
                 }.start();
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //register your sensorListener here
+
+        if (!counterIsRunning) {
+            addListenerOnButton();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
+
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //Unregister your sensor listener here
     }
 }
