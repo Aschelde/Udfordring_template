@@ -6,4 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".ResultActivity">
 
+    <Button
+        android:id="@+id/retry_button"
+        android:layout_width="293dp"
+        android:layout_height="111dp"
+        android:layout_marginBottom="71dp"
+        android:text="RETRY"
+        android:textSize="71dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/return_button"
+        android:layout_width="293dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="231dp"
+        android:text="RETURN"
+        android:textSize="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Result_text" />
+
+    <TextView
+        android:id="@+id/Result_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="136dp"
+        android:layout_marginBottom="234dp"
+        android:text="TextView"
+        android:textSize="71dp"
+        app:layout_constraintBottom_toTopOf="@+id/return_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
