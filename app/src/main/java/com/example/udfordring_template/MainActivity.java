@@ -32,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
     public void addListenerOnButton(){
         Button counterButton = (Button) findViewById(R.id.Counter1);
         TextView textView = (TextView) findViewById(R.id.Parameter);
+
+        counterButton.setEnabled(true);
+        counterButton.setText("START");
+
         counterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,7 +54,9 @@ public class MainActivity extends AppCompatActivity {
                     public void onFinish() {
                         //counterButton.setText("done!");
                         Intent intent = new Intent(MainActivity.this, ResultActivity.class);
-                        intent.putExtra("result_key", "test");
+
+                        //Add sensor data in the putExtra method's value field
+                        intent.putExtra("result_key", "sensor_data");
                         counterIsRunning = false;
                         startActivity(intent);
                     }
@@ -80,6 +86,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        //Unregister your sensor listener here
+        //Unregister your sensorListener here
     }
 }
