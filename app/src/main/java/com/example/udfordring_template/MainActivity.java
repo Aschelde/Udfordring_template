@@ -9,6 +9,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 counterButton.setEnabled(false);
 
-                new CountDownTimer(30000, 1000) {
+                new CountDownTimer(5000, 1000) {
 
                     public void onTick(long millisUntilFinished) {
                         counterButton.setText("" + millisUntilFinished / 1000);
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onFinish() {
                         //counterButton.setText("done!");
                         Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+                        intent.putExtra("result_key", "test");
                         startActivity(intent);
                     }
 
